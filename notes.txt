@@ -1,0 +1,8 @@
+Questions for kelvin
+
+how can i handle some validation 
+like email uniqueness
+
+How can i implement to lowercase to username
+
+How can i indicate that i banned the user

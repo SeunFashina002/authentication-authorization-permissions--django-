@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}| cypher</title>
+    
+    <link rel="stylesheet" href="{% static 'main/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/bootstrap.min.css' %}" />
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3 ">
+        <div class="container-fluid">
+            
+            <div class="p-1">
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="/home" class="nav-link text-light"> Home </a>
+                    </li>
+            
+                    <li class="nav-item">
+                        <a href="/create-post" class="nav-link text-light"> Post </a>
+                    </li>
+                </ul>
+            
+            </div>
+
+            <div>
+                <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
+                    <span class="navbar-text text-light">logged in as {{user.username}} | </span>    
+
+                        <li class="nav-item">    
+                            <a href="/logout" class="nav-link text-light">  Logout</a>
+                        </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link text-light">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            
+        </div>
+    </nav>
+
+
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+
+
+
+    <script src="{% static 'main/bootstrap.min.js' %}"></script>
+</body>
+</html>
